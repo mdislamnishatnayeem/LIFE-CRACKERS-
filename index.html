@@ -149,6 +149,95 @@ function startTimer() {
         document.getElementById("timerDisplay").innerHTML = displayString;
     }
 
+
+	function resetTimer() {
+  clearInterval(timer);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  TIME RESET OPTIONS    -->
+<!--  TIME RESET OPTIONS    -->
+<!--  TIME RESET OPTIONS    -->
+<!--  TIME RESET OPTIONS    -->
+<!--  TIME RESET OPTIONS    -->
+
+
+
+
+  days = 5;
+  hours = 0;
+  minutes =0;
+  seconds = 0;
+
+
+
+
+
+<!--  TIME RESET OPTIONS    -->
+<!--  TIME RESET OPTIONS    -->
+<!--  TIME RESET OPTIONS    -->
+<!--  TIME RESET OPTIONS    -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  elapsedTime = 0;
+  timerStarted = false;
+  document.getElementById("inputFields").style.display = "block";
+  document.getElementById("timerDisplay").style.display = "none";
+  document.getElementById("days").value = 0;
+  document.getElementById("hours").value = 0;
+  document.getElementById("minutes").value = 25;
+  document.getElementById("timerDisplay").innerHTML = "";
+  localStorage.removeItem("pomodoroTimer");
+}
+
     window.onload = function() {
         if (localStorage.getItem("pomodoroTimer")) {
             var savedTimer = JSON.parse(localStorage.getItem("pomodoroTimer"));
@@ -768,7 +857,11 @@ Subjects:উচ্চতর গণিত ---> যোগজীকরণ X-(B)	<br
 
       
 <button onclick="startTimer()" class="button" style="vertical-align:middle"><span>Start </span></button>
+
+
+ 
     </div>
+<button onclick="resetTimer()" class="button" style="vertical-align:middle"><span>Reset</span></button>
 <p style="text-align:left;background-color:yellow;color:BLACK;padding:0px;padding-left:5px;font-size:20px;font-weight:bold;">TIMES REMAINING:</p>
     <div id="timerDisplay" style="display: none;"></div>
 
