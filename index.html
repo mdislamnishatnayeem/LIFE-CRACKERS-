@@ -238,6 +238,8 @@ function startTimer() {
   localStorage.removeItem("pomodoroTimer");
 }
 
+
+
     window.onload = function() {
         if (localStorage.getItem("pomodoroTimer")) {
             var savedTimer = JSON.parse(localStorage.getItem("pomodoroTimer"));
@@ -711,12 +713,12 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 
 
-
-											<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-Subjects:Physics ----->  Chapter:Thermodynamics        <br>				<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-Subjects:Chemistry ----->  Chapter:পরিমানগত রসায়ন+তরিৎ রসায়ন	<br>			<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-Subjects:উচ্চতর গণিত ---> যোগজীকরণ X-(B)	<br>				      <!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-দলন ভাইয়ার নিয়মিত পড়া  <br>								   <!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
+<p style="margin:0;margin-left:10%;color:green;">Your Targets:</p>
+    <textarea id="input" rows="4" cols="50" style="margin-left:10%;"></textarea>
+    <button onclick="saveText()" class="button" style=" background:green;color:white;vertical-align:middle"><span>Save </span></button>
+    <button onclick="resetText()" class="button" style=" background:green;color:white;vertical-align:middle"><span>Reset </span></button>
+    
+    <p id="output" style="font-size:20px;padding:8px 12px;color:white;background:green;margin-left:15%;margin-right:15%;"></p>
 
 
 
@@ -758,7 +760,7 @@ Subjects:উচ্চতর গণিত ---> যোগজীকরণ X-(B)	<br
 
 <br>
 </p> 
-<hr style="padding-top:3px;margin:0px;height:3px;background:black;">
+
     <div id="inputFields">
 
 
@@ -856,15 +858,41 @@ Subjects:উচ্চতর গণিত ---> যোগজীকরণ X-(B)	<br
 
 
       
-<button onclick="startTimer()" class="button" style="vertical-align:middle"><span>Start </span></button>
+<button onclick="startTimer()" class="button" style="vertical-align:middle; background:#C90000;color:white;"><span>Start </span></button>
 
 
  
     </div>
-<button onclick="resetTimer()" class="button" style="vertical-align:middle"><span>Reset</span></button>
-<p style="text-align:left;background-color:yellow;color:BLACK;padding:0px;padding-left:5px;font-size:20px;font-weight:bold;">TIMES REMAINING:</p>
+<button onclick="resetTimer()" class="button" style="vertical-align:middle; background:#C90000;color:white;"><span>Reset</span></button>
+<p style="text-align:left;background-color:yellow;color:red;padding:0px;padding-left:5px;font-size:20px;font-weight:bold;">TIMES REMAINING:</p>
     <div id="timerDisplay" style="display: none;"></div>
 
-<button class="button" style="vertical-align:middle"><span><a href="page1.html" style="text-decoration:none;font-size:18px;color:black;">NEW Target </a></span></button>
+
+
+<script>
+      // Function to save the text input
+      function saveText() {
+        var text = document.getElementById("input").value;
+        localStorage.setItem("text", text);
+        document.getElementById("output").innerHTML = text;
+        document.getElementById("input").style.display = "none";
+      }
+
+      // Function to reset the text input
+      function resetText() {
+        localStorage.removeItem("text");
+        document.getElementById("input").value = "";
+        document.getElementById("output").innerHTML = "";
+        document.getElementById("input").style.display = "block";
+      }
+
+      // Check if text was previously saved
+      if (localStorage.getItem("text")) {
+        var savedText = localStorage.getItem("text");
+        document.getElementById("input").value = savedText;
+        document.getElementById("output").innerHTML = savedText;
+        document.getElementById("input").style.display = "none";
+      }
+    </script>
 </body>
 </html>
