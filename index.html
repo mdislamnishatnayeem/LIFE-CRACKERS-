@@ -1,1 +1,372 @@
+<!DOCTYPE html> 
+<html>
+ <head> 
+<title>Pomodoro Timer</title>
+ <script
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+
+
+
+
+
+
+
+ var days = 0;						<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+ var hours = 0;						<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+ var minutes = 60;					<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+ var seconds = 0; 					<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+							<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+							<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+							<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+
+
+
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ var startTime;
+ var elapsedTime = 0;
+ var timer;
+ var timerStarted = false;  
+function startTimer() {
+        if (!timerStarted) {
+            document.getElementById("inputFields").style.display = "none";
+            document.getElementById("timerDisplay").style.display = "block";
+            startTime = new Date().getTime() + (days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60 + seconds) * 1000;
+            updateTimer();
+            timer = setInterval(updateTimer, 1000);
+            timerStarted = true;
+        }
+    }
+
+    function updateTimer() {
+        var currentTime = new Date().getTime();
+        var remainingSeconds = Math.floor((startTime - currentTime) / 1000);
+
+        if (remainingSeconds < 0) {
+            clearInterval(timer);
+            document.getElementById("timerDisplay").innerHTML = "Time's up!";
+            return;
+        }
+
+        var remainingDays = Math.floor(remainingSeconds / (24 * 60 * 60));
+        remainingSeconds = remainingSeconds % (24 * 60 * 60);
+
+        var remainingHours = Math.floor(remainingSeconds / (60 * 60));
+        remainingSeconds = remainingSeconds % (60 * 60);
+
+        var remainingMinutes = Math.floor(remainingSeconds / 60);
+        remainingSeconds = remainingSeconds % 60;
+
+        var displayString = "";
+
+        if (remainingDays > 0) {
+            displayString += remainingDays + "d ";
+        }
+
+        if (remainingHours > 0) {
+            displayString += remainingHours + "h ";
+        }
+
+        if (remainingMinutes > 0) {
+            displayString += remainingMinutes + "m ";
+        }
+
+        if (remainingSeconds >= 0) {
+            displayString += remainingSeconds + "s";
+        }
+
+        document.getElementById("timerDisplay").innerHTML = displayString;
+    }
+
+    window.onload = function() {
+        if (localStorage.getItem("pomodoroTimer")) {
+            var savedTimer = JSON.parse(localStorage.getItem("pomodoroTimer"));
+            days = savedTimer.days;
+            hours = savedTimer.hours;
+            minutes = savedTimer.minutes;
+            seconds = savedTimer.seconds;
+            timerStarted = savedTimer.timerStarted;
+            startTime = savedTimer.startTime;
+            elapsedTime = new Date().getTime() - startTime;
+            if (timerStarted) {
+                document.getElementById("inputFields").style.display = "none";
+                document.getElementById("timerDisplay").style.display = "block";
+                updateTimer();
+                timer = setInterval(updateTimer, 1000);
+            }
+        }
+    }
+
+    window.onbeforeunload = function() {
+        if (timerStarted) {
+            localStorage.setItem("pomodoroTimer", JSON.stringify({days: days, hours: hours, minutes: minutes, seconds: seconds, timerStarted: timerStarted, startTime: startTime}));
+        } else {
+            localStorage.removeItem("pomodoroTimer");
+        }
+    }
+</script>
+<style>
+body{
+    font-family: 'Roboto', sans-serif;
+font-size:28px;
+margin:0%;
+background:yellow;
+}
+     label{
+
+      color:black;
+
+}
+input{
+   color:black;
+border:solid 2px black;
+border-radius:5px;
+font-size:22px;
+}
+
+div{
+  text-align:center;
+
+padding-top:5%;
+font-size:30px;
+background:#ff0000;
+color:white;
+padding-bottom:5%;
+border:solid 1px yellow;
+border-radius:5px;
+margin-top:0px;
+ padding: 20px;
+
+box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #ffc300;
+  border: none;
+  color:black;
+  text-align: center;
+  font-size: 28px;
+  padding: 2px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+</style>
+</head>
+<body>
+<p style="text-align:center;background-color:yellow;color:BLACK;padding:0px;padding-top:4px;margin-bottom:0px;font-size:18px;font-weight:bold;">
+
+
+Subjects:Physics ----->  Chapter:        <br>
+Subjects:Physics ----->  Chapter:	<br>
+Subjects:Physics ----->  Chapter:	<br>
+
+
+<br>
+</p> 
+<hr style="padding-top:3px;margin:0px;height:3px;background:black;">
+    <div id="inputFields">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+
+
+
+
+
+
+
+
+        <label for="days">Days:</label>						<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+        <input type="number" id="days" value="0"><br>				<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+        <label for="hours">Hours:</label>					<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+        <input type="number" id="hours" value="0"><br>				<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+        <label for="minutes">Minutes:</label>					<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+        <input type="number" id="minutes" value="25"><br>			<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+
+
+
+
+
+
+
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+      
+<button onclick="startTimer()" class="button" style="vertical-align:middle"><span>Start </span></button>
+    </div>
+<p style="text-align:left;background-color:yellow;color:BLACK;padding:0px;padding-left:5px;font-size:20px;font-weight:bold;">TIMES REMAINING:</p>
+    <div id="timerDisplay" style="display: none;"></div>
+
+<button class="button" style="vertical-align:middle"><span><a href="url" style="text-decoration:none;font-size:18px;color:black;">NEW Target </a></span></button>
+</body>
+</html>
