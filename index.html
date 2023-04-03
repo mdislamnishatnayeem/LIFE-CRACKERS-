@@ -87,6 +87,10 @@
 		if (code !== "55555" || email !== "mdislamnishat2002@gmail.com" || otp !== "12345") {
 			loginError.textContent = "Invalid code, email or OTP";
 		} else {
+			// Login successful, set isLoggedIn to true and redirect to the home page
+sessionStorage.setItem("isLoggedIn", true);
+window.location.href = "main.html";
+
 			// Login successful, redirect to the home page (replace with your own URL)
 			window.location.href = "https://mdislamnishatnayeem.github.io/LIFE-CRACKERS-/main.html";
 		}
