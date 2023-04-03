@@ -75,18 +75,68 @@
 </div>
 
 <script>
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	const loginForm = document.getElementById("loginForm");
 	const loginError = document.getElementById("loginError");
 
 	loginForm.addEventListener("submit", (event) => {
 		event.preventDefault();
-
-		const code = loginForm.code.value;
 		const email = loginForm.email.value;
 		const otp = loginForm.otp.value;
 
+
+
+
+	       function fibonacciSum(n) {
+			if (n <= 1) {
+				return n;
+			}
+			return fibonacciSum(n-1) + fibonacciSum(n-2);
+		}
+
+		
+		var code = parseInt(loginForm.code.value);
+
+		var fibonacciSumReverse = parseInt(fibonacciSum(10).toString().split("").reverse().join(""));
 		// Check if the code, email and OTP are valid (replace with your own validation code)
-		if (code !== "55555" || email !== "mdislamnishat2002@gmail.com" || otp !== "12345") {
+		if (code !== fibonacciSumReverse || email !== "mdislamnishat2002@gmail.com" || otp !== "12345") {
 			loginError.textContent = "Invalid code, email or OTP";
 		} else {
 			// Login successful, set isLoggedIn to true and redirect to the home page
@@ -97,10 +147,22 @@ window.location.href = "main.html";
 			window.location.href = "https://mdislamnishatnayeem.github.io/LIFE-CRACKERS-/main.html";
 		}
 	});
+			
+		
+
+
+
+
+
 </script>
-	<script src="https://dunggramer.github.io/disable-devtool/disable-devtool.min.js" defer></script>
-	<script src="https://cdn.staticaly.com/gh/DungGramer/disable-devtool/cbf447f/disable-devtool.min.js" defer></script>
-	<script src="https://gitcdn.xyz/repo/DungGramer/disable-devtool/master/disable-devtool.min.js" defer></script>
+
+
+
+
+
+
+
+
 </body>
 </html>
 			
