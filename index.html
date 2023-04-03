@@ -7,7 +7,6 @@
 			font-family: Arial, sans-serif;
 			background-color: #f2f2f2;
 		}
-		
 			.container {
 		background-color: #fff;
 		padding: 20px;
@@ -55,12 +54,14 @@
 		font-weight: bold;
 	}
 </style>
-
-
-</head> <body> 	<div class="container"> 		<h2>Login</h2> 		<form id="loginForm"> 			<label for="code">Code:</label> 			<input type="text" id="code" name="code"><br>
-
-
-		<label for="email">Email:</label>
+</head>
+<body>
+	<div class="container">
+		<h2>Login</h2>
+		<form id="loginForm">
+			<label for="code">Code:</label>
+			<input type="text" id="code" name="code"><br>
+					<label for="email">Email:</label>
 		<input type="email" id="email" name="email"><br>
 
         <label for="otp">One Time Password:</label>
@@ -83,7 +84,7 @@
 		const otp = loginForm.otp.value;
 
 		// Check if the code, email and OTP are valid (replace with your own validation code)
-		if (code !== "12345" || email !== "mdislamnishat2002@gmail.com" || otp !== "55555") {
+		if (code !== "55555" || email !== "mdislamnishat2002@gmail.com" || otp !== "12345") {
 			loginError.textContent = "Invalid code, email or OTP";
 		} else {
 			// Login successful, redirect to the home page (replace with your own URL)
@@ -93,3 +94,4 @@
 </script>
 </body>
 </html>
+			
