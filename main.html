@@ -6,7 +6,16 @@
 	 
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <title>Pomodoro Timer</title>
- 
+ <script>
+    // Check if the user is logged in (i.e., has a valid session)
+    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+
+    // If the user is not logged in, redirect to the login page
+    if (!isLoggedIn) {
+        window.location.href = "login.html";
+    }
+</script>
+
 <style>
 
 
