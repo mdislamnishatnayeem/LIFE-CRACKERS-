@@ -1,1 +1,2 @@
-Feature-Policy: interest-cohort 'none'
+Feature-Policy: camera 'none'; microphone 'none';
+
