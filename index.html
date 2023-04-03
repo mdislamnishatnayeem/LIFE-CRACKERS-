@@ -55,41 +55,49 @@
 		font-weight: bold;
 	}
 </style>
+</head>
+<body>
+	<div class="container">
+		<h2>Login</h2>
+		<form id="loginForm">
+			<label for="code">Code:</label>
+			<input type="text" id="code" name="code"><br>
 
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email"><br>
 
-</head> <body> 	<div class="container"> 		<h2>Login</h2> 		<form id="loginForm"> 			<label for="code">Code:</label> 			<input type="text" id="code" name="code"><br>
+			<label for="otp">One Time Password:</label>
+			<input type="text" id="otp" name="otp"><br>
 
+			<input type="submit" value="Login">
+		</form>
+		<p id="loginError"></p>
+	</div>
 
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email"><br>
+	<script>
+		const loginForm = document.getElementById("loginForm");
+		const loginError = document.getElementById("loginError");
 
-        <label for="otp">One Time Password:</label>
-        <input type="text" id="otp" name="otp"><br>
+		loginForm.addEventListener("submit", (event) => {
+			event.preventDefault();
 
-		<input type="submit" value="Login">
-	</form>
-	<p id="loginError"></p>
-</div>
+			const code = loginForm.code.value;
+			const email = loginForm.email.value;
+			const otp = loginForm.otp.value;
 
-<script>
-	const loginForm = document.getElementById("loginForm");
-	const loginError = document.getElementById("loginError");
+			// Check if the code, email and OTP are valid (replace with your own validation code)
+			if (code !== "12345" || email !== "mdislamnishat2002@gmail.com" || otp !== "55555") {
+				loginError.textContent = "Invalid code, email or OTP";
+			} else {
+				// Login successful, redirect to the home page (replace with your own URL)
+				window.location.href = "https://mdislamnishatnayeem.github.io/LIFE-CRACKERS-/main.html";
+			}
+		});
 
-	loginForm.addEventListener("submit", (event) => {
-		event.preventDefault();
-
-		const code = loginForm.code.value;
-		const email = loginForm.email.value;
-		const otp = loginForm.otp.value;
-
-		// Check if the code, email and OTP are valid (replace with your own validation code)
-		if (code !== "12345" || email !== "mdislamnishat2002@gmail.com" || otp !== "55555") {
-			loginError.textContent = "Invalid code, email or OTP";
-		} else {
-			// Login successful, redirect to the home page (replace with your own URL)
-			window.location.href = "https://mdislamnishatnayeem.github.io/LIFE-CRACKERS-/main.html";
+		// Redirect to the login page if not logged in
+		if (!sessionStorage.getItem("isLoggedIn")) {
+			window.location.href = "https://mdislamnishatnayeem.github.io/LIFE-CRACKERS-/";
 		}
-	});
-</script>
+	</script>
 </body>
 </html>
