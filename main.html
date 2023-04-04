@@ -7,6 +7,7 @@
 
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <title>Pomodoro Timer</title>
+<link rel="icon" type="image/png" href="watch.jpg">
  <script>
     // Check if the user is logged in (i.e., has a valid session)
     const isLoggedIn = sessionStorage.getItem("isLoggedIn");
@@ -17,17 +18,20 @@
     }
 </script>
 
+
+
 <style>
 
 
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+
+
 body{
     font-family: 'Roboto', sans-serif;
 font-size:28px;
-margin:0%;
-background:yellow;
+margin:0px;
+background: #FBF8E9;
+padding:0px;
 }
      label{
 
@@ -67,11 +71,21 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   text-align: center;
   font-size: 28px;
   padding: 2px;
-  width: 150px;
+  width: 70px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
 }
+
+#alert{
+        animation: blink 1s linear infinite;
+	animation-delay:1s;
+      }
+ @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
 
 .button span {
   cursor: pointer;
@@ -97,464 +111,25 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   opacity: 1;
   right: 0;
 }
-}
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-body{
-    font-family: 'Roboto', sans-serif;
-font-size:28px;
-margin:0%;
-background:yellow;
-}
-     label{
 
-      color:black;
 
-}
-input{
-   color:black;
-border:solid 2px black;
-border-radius:5px;
-font-size:22px;
-}
 
-div{
-  text-align:center;
 
-padding-top:5%;
-font-size:30px;
-background:#ff0000;
-color:white;
-padding-bottom:5%;
-border:solid 1px yellow;
-border-radius:5px;
-margin-top:0px;
- padding: 20px;
-
-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-
-}
-
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #ffc300;
-  border: none;
-  color:black;
-  text-align: center;
-  font-size: 28px;
-  padding: 2px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-body{
-    font-family: 'Roboto', sans-serif;
-font-size:28px;
-margin:0%;
-background:yellow;
-}
-     label{
-
-      color:black;
-
-}
-input{
-   color:black;
-border:solid 2px black;
-border-radius:5px;
-font-size:22px;
-}
-
-div{
-  text-align:center;
-
-padding-top:5%;
-font-size:30px;
-background:#ff0000;
-color:white;
-padding-bottom:5%;
-border:solid 1px yellow;
-border-radius:5px;
-margin-top:0px;
- padding: 20px;
-
-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-
-}
-
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #ffc300;
-  border: none;
-  color:black;
-  text-align: center;
-  font-size: 28px;
-  padding: 2px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-body{
-    font-family: 'Roboto', sans-serif;
-font-size:28px;
-margin:0%;
-background:yellow;
-}
-     label{
-
-      color:black;
-
-}
-input{
-   color:black;
-border:solid 2px black;
-border-radius:5px;
-font-size:22px;
-}
-
-div{
-  text-align:center;
-
-padding-top:5%;
-font-size:30px;
-background:#ff0000;
-color:white;
-padding-bottom:5%;
-border:solid 1px yellow;
-border-radius:5px;
-margin-top:0px;
- padding: 20px;
-
-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-
-}
-
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #ffc300;
-  border: none;
-  color:black;
-  text-align: center;
-  font-size: 28px;
-  padding: 2px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-body{
-    font-family: 'Roboto', sans-serif;
-font-size:28px;
-margin:0%;
-background:yellow;
-}
-     label{
-
-      color:black;
-
-}
-input{
-   color:black;
-border:solid 2px black;
-border-radius:5px;
-font-size:22px;
-}
-
-div{
-  text-align:center;
-
-padding-top:5%;
-font-size:30px;
-background:#ff0000;
-color:white;
-padding-bottom:5%;
-border:solid 1px yellow;
-border-radius:5px;
-margin-top:0px;
- padding: 20px;
-
-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-
-}
-
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #ffc300;
-  border: none;
-  color:black;
-  text-align: center;
-  font-size: 28px;
-  padding: 2px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-}
 
 
 
 </style>
 </head>
 <body>
-<p style="text-align:center;background-color:yellow;color:BLACK;padding:0px;padding-top:4px;margin-bottom:0px;font-size:18px;font-weight:bold;">
 
 
 
+    <div id="inputFields" style="margin:0px;">
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-
-
-
-
-
-<p style="margin:0;margin-left:10%;color:green;">Your Targets:</p>
-    <textarea id="input" rows="4" cols="50" style="margin-left:10%;"></textarea>
-    <button onclick="saveText()" class="button" style=" background:green;color:white;vertical-align:middle"><span>Save </span></button>
-    <button onclick="resetText()" class="button" style=" background:green;color:white;vertical-align:middle"><span>Reset </span></button>
-
-    <p id="output" style="font-size:20px;padding:8px 12px;color:white;background:green;margin-left:15%;margin-right:15%;"></p>
-
-
-
-
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-<!-- তোমার planning গুলো এখানে লিখে ফেলো   -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-</p> 
-
-    <div id="inputFields">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-
-
-
-
-
-
-
-
-        <label for="days">Days:</label>	
+   <label for="days">Days:</label>	
 	 <input type="number" id="days" name="days" min="0"><br>					
 
         <label for="hours">Hours:</label>
@@ -569,50 +144,55 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 
 
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও । সে টাইম গুলো ভ্যালুর জায়গায় বসিয়ে দাও       -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <button onclick="startTimer(); myFunction();" class="button" style="vertical-align: middle; background: #C90000; color: white;"><span>Start </span></button>
 
 
 
 
     </div>
-<button onclick="resetTimer()" class="button" style="vertical-align:middle; background:#C90000;color:white;"><span>Reset</span></button>
-<p style="text-align:left;background-color:yellow;color:red;padding:0px;padding-left:5px;font-size:20px;font-weight:bold;">TIMES REMAINING:</p>
+<button onclick="resetTimer()" class="button" style="vertical-align:middle; background:#C90000;color:white;font-size:16px;font-weight:bold;margin-top:0px;"><span>Reset</span></button>
+<p id="alert" style="text-align:center;background-color:red;color:white;padding:0px;padding-left:5px;font-size:20px;font-weight:bold;width:50%;margin-right:20%;margin-left:20%;margin-top:0px;">TIMES REMAINING:</p>
     <div id="timerDisplay" style="display: none;"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <textarea id="input" rows="4" cols="50" style="margin-left:10%;margin-top:5%;background:#F8F8B0;font-size:20px;width:50%;border-radius:5%;"></textarea>
+<button onclick="resetText()" class="button" style=" background:#ffda30;color:black;vertical-align:middle;font-size:16px;font-weight:bold;"><span>Reset </span></button>
+    <button onclick="saveText()" class="button" style=" background:#ffda30;color:black;vertical-align:middle;font-size:16px;font-weight:bold;"><span>Save </span></button>
+    
+	<p style="margin:0;margin-left:10%;color:black;font-size:18px;font-weight:bold;">Your Targets:</p>
+    <p id="output" style="font-size:20px;padding:8px 12px;color:black;background:#ffda30;margin:0px;margin-left:15%;margin-right:15%;"></p>
+
+<br>
+</p> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -644,83 +224,9 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-
-
-
-
-
-
-
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-<!--  এখানে তুমি যে টাইম ঠিক করতে চাও  সে টাইম গুলো Variable এর মান ঠিক করে দাও      -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function myFunction() {
   document.getElementById("timerDisplay").style.fontSize = "60px";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
